@@ -3,7 +3,9 @@ package com.spaceflight.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.spaceflight.network.ApiService
 import com.spaceflight.repository.NewsRepository
-import com.spaceflight.ui.HomeViewModel
+import com.spaceflight.ui.dialog.DialogDetailsViewModel
+import com.spaceflight.ui.fragment.NewsViewModel
+import com.spaceflight.ui.home.HomeViewModel
 import com.spaceflight.utils.Constant.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,6 +24,8 @@ val applicationModule = module {
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
+    viewModel { NewsViewModel(get()) }
+    viewModel { DialogDetailsViewModel(get()) }
 }
 
 val repositoryModule = module {

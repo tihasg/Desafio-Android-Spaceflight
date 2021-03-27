@@ -15,6 +15,9 @@ data class NewsResponse(
     @Json(name = "url")
     var url: String?,
 
+    @Json(name = "imageUrl")
+    var imageUrl: String?,
+
     @Json(name = "newsSite")
     var newsSite: String?,
 
