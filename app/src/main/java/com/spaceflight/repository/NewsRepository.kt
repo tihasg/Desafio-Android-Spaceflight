@@ -15,4 +15,12 @@ class NewsRepository(private val apiService: ApiService) {
     fun getNews(): List<NewsResponse> {
         return Hawk.get("news")
     }
+
+    fun saveClick(newsResponse: NewsResponse) {
+        Hawk.put("click", newsResponse)
+    }
+
+    fun getClick(): NewsResponse {
+        return Hawk.get("click")
+    }
 }

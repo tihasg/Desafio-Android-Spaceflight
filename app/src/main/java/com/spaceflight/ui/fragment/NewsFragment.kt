@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.spaceflight.databinding.FragmentNewsBinding
 import com.spaceflight.network.response.NewsResponse
 import com.spaceflight.ui.adapter.NewsRecyclerAdapter
+import com.spaceflight.ui.dialog.DialogDetails
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class NewsFragment : Fragment(), NewsListener {
@@ -54,7 +55,8 @@ class NewsFragment : Fragment(), NewsListener {
     }
 
     private fun getNews(obj: NewsResponse) {
-
+        viewModel.saveClick(obj)
+        DialogDetails().show(requireActivity().supportFragmentManager, "Details")
     }
 
     override fun onSearch() {

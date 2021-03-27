@@ -20,4 +20,8 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
         listener!!.onSearch()
     }
 
+    fun saveClick(newsResponse: NewsResponse){
+        repository.saveClick(newsResponse)
+    }
+
 }

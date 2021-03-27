@@ -7,6 +7,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.spaceflight.R
@@ -30,10 +31,16 @@ class NewsRecyclerAdapter(private val getNews: (NewsResponse) -> Unit) :
         fun bind(newsResponse: NewsResponse, getNews: (NewsResponse) -> Unit) {
             val name = itemView.findViewById<TextView>(R.id.textTitle)
             val image = itemView.findViewById<ImageView>(R.id.imageView)
+            val click  = itemView.findViewById<ConstraintLayout>(R.id.itemClick)
 
             name.text = newsResponse.title
 
             Glide.with(image.context).load(newsResponse.imageUrl).into(image)
+
+            click.setOnClickListener {
+                getNews(newsResponse)
+            }
+
         }
     }
 
