@@ -25,7 +25,6 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel(), Corou
 
     fun initViewModel() {
         _newsList.postValue(repository.getNews())
-
         listener!!.onSearch()
     }
 
@@ -51,7 +50,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel(), Corou
                     _newsList.postValue(listActual)
                 }
             } catch (e: Exception) {
-
+                _newsList.postValue(arrayListOf())
             }
         }
     }
